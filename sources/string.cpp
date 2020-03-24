@@ -125,7 +125,7 @@ char& String::operator[](size_t index){
 
 void String::RTrim(char symbol){
  int count = 0;
- for (size_t i = Size() - 1; i >= 0; i--){
+ for (size_t i = Size() - 1; i != 0; i--){
   if (Data[i] == symbol){
    count++;
   }else{

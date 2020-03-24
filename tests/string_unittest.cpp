@@ -75,7 +75,7 @@ TEST(String, Mult) {
   EXPECT_EQ(s1, String("ABCABCABC"));
 
   String s2 = s1 * 3;
-  EXPECT_EQ(s2, String("ABCABCABCABCABCABCABCABCABC"));
+  EXPECT_EQ(s2, String("ABCABCABCABCABCABCABCABCABCABCABCABC"));
 }
 
 TEST(String, Trim) {

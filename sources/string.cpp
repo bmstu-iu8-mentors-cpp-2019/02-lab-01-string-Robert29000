@@ -101,6 +101,7 @@ size_t String::Find(const String& substr) const{
    pos = i;
    return pos;
   }
+  delete[] temp;
  }
  delete[] temp;
  return pos;
@@ -210,6 +211,7 @@ String operator+(const String& a, const String& b){
   }
  }
  String res(data);
+ delete[] data;
  return res;
 }
 
@@ -225,6 +227,7 @@ String operator*(const String& a, unsigned int b){
   }
  }
  String res(data);
+ delete[] data;
  return res;
 }
 

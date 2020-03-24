@@ -221,6 +221,5 @@ String operator*(const String& a, unsigned int b){
 }
 
 std::ostream& operator<<(std::ostream& out, const String& str){
- out << str.Data;
- return out;
+ return out str.Data;
 }

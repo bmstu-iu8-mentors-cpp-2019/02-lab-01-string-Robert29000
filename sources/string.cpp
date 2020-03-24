@@ -70,7 +70,7 @@ bool String::operator==(const String& rhs) const{
  return true;
 }
 
-bool operator==(const char* lhs, const String& rhs) const{
+bool operator==(const char* lhs, const String& rhs){
  String sLhs(lhs);
  return sLhs == rhs;
 }

@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <cstring>
+#include <memory.h>
 #include <string.hpp>
 
 String::~String(){
@@ -16,13 +18,13 @@ String::String(const String& rhs){
  size_t length = rhs.Size();
  Data = new char[length + 1];
  Data[length] = '\0';
- for (int i = 0; i < length; i++){
+ for (size_t i = 0; i < length; i++){
   Data[i] = rhs[i];
  }
 }
 
 String::String(const char* data){
- size_t length = strlen(data);
+ size_t length = std::strlen(data);
  Data = new char[length+1];
  Data[length] = '\0';
  for (size_t i = 0; i < length; i++){
@@ -36,7 +38,7 @@ String& String::operator=(const String& rhs){
  Data = new char[length+1];
  Data[length] = '\0';
  if (&rhs != this){
-  for (int i = 0 ; i < length ; i++){
+  for (size_t i = 0 ; i < length ; i++){
    Data[i] = rhs.Data[i];
   }
  }
@@ -81,7 +83,7 @@ size_t String::Find(const String& substr) const{
  char* temp = new char[word_length+1];
  temp[word_length] = '\0';
  for (size_t i = 0 ; i < Size() - word_length + 1 ; i++){
-  memcpy(temp, &Data[i], word_length);
+  std::memcpy(temp, &Data[i], word_length);
   temp[word_length] = '\0';
   String tempString(temp);
   if (tempString == substr){
@@ -102,7 +104,7 @@ void String::Replace(char oldSymbol, char newSymbol){
 }
 
 size_t String::Size() const{
- return strlen(Data);
+ return std::strlen(Data);
 }
 
 bool String::Empty() const{
@@ -180,7 +182,7 @@ String operator+(const String& a, const String& b){
  size_t length = a.Size() + b.Size();
  char *data = new char[length+1];
  data[length] = '\0';
- for (int i = 0; i < length; i++){
+ for (size_t i = 0; i < length; i++){
   if (i < a.Size()){
    data[i] = a[i];
   }else{
@@ -196,14 +198,14 @@ String operator*(const String& a, unsigned int b){
  char* data = new char[length+1];
  data[length] = '\0';
  int counter = 0;
- for (int i = 0; i <= b ; i++){
+ for (size_t j = 0; j <= b ; j++){
   for (size_t i = 0; i < a.Size(); i++){
    data[counter] = a[i];
    counter++;
   }
  }
  String res(data);
- return data;
+ return res;
 }
 
 std::ostream& operator<<(std::ostream& out, const String& str){

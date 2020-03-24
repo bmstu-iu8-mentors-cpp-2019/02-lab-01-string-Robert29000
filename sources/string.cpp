@@ -54,7 +54,7 @@ String& String::operator*=(unsigned int m){
 }
 
 bool String::operator==(const String& rhs) const{
- for (size_t i = 0 ; i < Size() ;i++){
+ for (size_t i = 0 ; i < Size() ; i++){
   if (Data[i] != rhs[i]){
    return false;
   }
@@ -106,7 +106,7 @@ size_t String::Size() const{
 }
 
 bool String::Empty() const{
- if (Size() > 0 ){
+ if (Size() > 0){
   return true;
  }else{
   return false;

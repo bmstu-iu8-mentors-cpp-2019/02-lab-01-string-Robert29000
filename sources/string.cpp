@@ -50,6 +50,12 @@ String& String::operator+=(const String& rhs){
  return *this;
 }
 
+String& String::operator+=(const char* substr){
+ String rhs(substr);
+ (*this) = (*this) + rhs;
+ return *this;
+}
+
 String& String::operator*=(unsigned int m){
  (*this) = (*this) * m;
  return *this;
@@ -93,6 +99,11 @@ size_t String::Find(const String& substr) const{
  }
  delete[] temp;
  return pos;
+}
+
+size_t String::Find(const char* substr) const{
+ String data(substr);
+ return Find(data);
 }
 
 void String::Replace(char oldSymbol, char newSymbol){

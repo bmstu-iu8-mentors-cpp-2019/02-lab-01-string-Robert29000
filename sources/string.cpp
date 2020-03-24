@@ -14,32 +14,26 @@ String::String(){
  Data = nullptr;
 }
 
-String::String(const String& rhs){
- size_t length = rhs.Size();
- Data = new char[length + 1];
- Data[length] = '\0';
- for (size_t i = 0; i < length; i++){
-  Data[i] = rhs[i];
- }
-}
+String::String(const String& rhs):String(rhs.Data)
+{}
 
 String::String(const char* data){
  size_t length = std::strlen(data);
  Data = new char[length+1];
  Data[length] = '\0';
  for (size_t i = 0; i < length; i++){
-  Data[i] = data[i];
+  std::copy(Data[i],data[i]);
  }
 }
 
 String& String::operator=(const String& rhs){
+ if (&rhs != this){
  delete [] Data;
  size_t length = rhs.Size();
  Data = new char[length+1];
  Data[length] = '\0';
- if (&rhs != this){
   for (size_t i = 0 ; i < length ; i++){
-   Data[i] = rhs.Data[i];
+   std::copy(Data[i],rhs.Data[i]);
   }
  }
  return *this;

@@ -120,7 +120,7 @@ void String::Replace(char oldSymbol, char newSymbol){
 }
 
 size_t String::Size() const{
- if(Data != nullptr){
+ if (Data != nullptr){
   return std::strlen(Data);
  }else{
   return 0;

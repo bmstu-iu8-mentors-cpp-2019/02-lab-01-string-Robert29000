@@ -96,11 +96,11 @@ size_t String::Find(const String& substr) const{
   std::memcpy(temp, &Data[i], word_length);
   temp[word_length] = '\0';
   String tempString(temp);
+  delete[] temp;
   if (tempString == substr){
    pos = i;
    return pos;
   }
-  delete[] temp;
  }
  return pos;
 }

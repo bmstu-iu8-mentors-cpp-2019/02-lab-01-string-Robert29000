@@ -91,9 +91,8 @@ bool String::operator<(const String& rhs) const{
 size_t String::Find(const String& substr) const{
  size_t word_length = substr.Size();
  size_t pos = -1;
- char* temp = new char[word_length+1];
- temp[word_length] = '\0';
  for (size_t i = 0 ; i < Size() - word_length + 1 ; i++){
+  char* temp = new char[word_length+1];
   std::memcpy(temp, &Data[i], word_length);
   temp[word_length] = '\0';
   String tempString(temp);
@@ -103,7 +102,6 @@ size_t String::Find(const String& substr) const{
   }
   delete[] temp;
  }
- delete[] temp;
  return pos;
 }
 

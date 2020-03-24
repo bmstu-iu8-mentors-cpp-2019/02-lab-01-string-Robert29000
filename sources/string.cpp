@@ -70,6 +70,11 @@ bool String::operator==(const String& rhs) const{
  return true;
 }
 
+bool operator==(const char* lhs, const String& rhs) const{
+ String sLhs(lhs);
+ return sLhs == rhs;
+}
+
 bool String::operator<(const String& rhs) const{
  for (size_t i = 0 ; i < Size(); i++){
   if (Data[i] < rhs[i]){

@@ -44,7 +44,7 @@ class String {
   /// <param name="rhs">Объект, который стоит после знака '==' </param>
   /// <returns>Возвращаем значения равенства двух строк</returns>
   bool operator==(const String& rhs) const;
-  friend bool operator==(const char* lhs, const String& rhs) const;
+  friend bool operator==(const char* lhs, const String& rhs);
   /// Оператор &lt;
   /// <param name="rhs">Объект, который стоит после знака "&lt;" </param>
   /// <returns>Возвращаем значения сравнения двух строк</returns>
@@ -151,5 +151,5 @@ bool operator>(const String& a, const String& b);
 /// <param name="str">Строка, которую выводим </param>
 /// <returns>Возвращаем ссылку на поток</returns>
 std::ostream& operator<<(std::ostream& out, const String& str);
-bool operator==(const char* lhs, const String& rhs) const;
+bool operator==(const char* lhs, const String& rhs);
 #endif  // INCLUDE_STRING_HPP_

@@ -129,9 +129,9 @@ size_t String::Size() const{
 
 bool String::Empty() const{
  if (Size() > 0){
-  return true;
- }else{
   return false;
+ }else{
+  return true;
  }
 }
 

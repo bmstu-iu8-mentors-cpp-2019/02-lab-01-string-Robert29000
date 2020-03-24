@@ -84,19 +84,12 @@ bool String::operator<(const String& rhs) const{
 
 size_t String::Find(const String& substr) const{
  size_t word_length = substr.Size();
- size_t pos = -1;
- for (size_t i = 0 ; i < Size() - word_length + 1 ; i++){
-  char* temp = new char[word_length+1];
-  std::memcpy(temp, &Data[i], word_length);
-  temp[word_length] = '\0';
-  String tempString(temp);
-  delete[] temp;
-  if (tempString == substr){
-   pos = i;
-   return pos;
+ for (size_t i = 0; i < Size() - word_length + 1; ++i) {
+  if (std::equal(Data[i], Data[i] + word_length, substr.Data)) {
+   return i;
   }
  }
- return pos;
+ return std::string::npos;
 }
 
 size_t String::Find(const char* substr) const{

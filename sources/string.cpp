@@ -185,10 +185,7 @@ void String::LTrim(char symbol){
 }
 
 void String::swap(String& oth){
- String temp;
- temp = *this;
- (*this) = oth;
- oth = temp;
+ std::swap(Data,oth.Data);
 }
 
 String operator+(const String& a, const String& b){

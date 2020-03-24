@@ -22,7 +22,7 @@ String::String(const char* data){
  Data = new char[length+1];
  Data[length] = '\0';
  for (size_t i = 0; i < length; i++){
-  std::copy(Data[i],data[i]);
+  std::copy(Data[i], data[i]);
  }
 }
 
@@ -33,7 +33,7 @@ String& String::operator=(const String& rhs){
  Data = new char[length+1];
  Data[length] = '\0';
   for (size_t i = 0 ; i < length ; i++){
-   std::copy(Data[i],rhs.Data[i]);
+   std::copy(Data[i], rhs.Data[i]);
   }
  }
  return *this;
@@ -114,11 +114,7 @@ size_t String::Size() const{
 }
 
 bool String::Empty() const{
- if (Size() > 0){
-  return false;
- }else{
-  return true;
- }
+ return Size() == 0;
 }
 
 char String::operator[](size_t index) const{

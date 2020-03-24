@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstring>
 #include <memory.h>
+#include <algorithm>
 #include <string.hpp>
 
 String::~String(){

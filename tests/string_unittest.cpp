@@ -116,7 +116,6 @@ TEST(String, Swap) {
   String s0("some string");
   String s1("other string");
   
-
   EXPECT_EQ("some string", s0);
   EXPECT_EQ("other string", s1);
 

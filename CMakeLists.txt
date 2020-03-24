@@ -31,10 +31,11 @@ find_package(GTest CONFIG REQUIRED)
 # TODO: change template word to project name and delete this comment
 add_library(template STATIC
   # enum your files and delete this comment
-  # ${CMAKE_CURRENT_SOURCE_DIR}/sources/string.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources/string.cpp
 )
 add_executable(tests
   # TODO: enum your files and delete this comment
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/string.hpp
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/string_unittest.cpp
 )
 

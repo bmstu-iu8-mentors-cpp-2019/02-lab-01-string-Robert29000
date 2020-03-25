@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <iostream>
 #include <cstring>
-#include <memory.h>
 #include <algorithm>
 #include <string.hpp>
 
@@ -22,9 +21,7 @@ String::String(const char* data){
  size_t length = std::strlen(data);
  Data = new char[length+1];
  Data[length] = '\0';
- for (size_t i = 0; i < length; i++){
-  std::copy(Data[i], data[i]);
- }
+ std::copy(data, data + length, Data);
 }
 
 String& String::operator=(const String& rhs){
@@ -33,9 +30,7 @@ String& String::operator=(const String& rhs){
  size_t length = rhs.Size();
  Data = new char[length+1];
  Data[length] = '\0';
-  for (size_t i = 0 ; i < length ; i++){
-   std::copy(Data[i], rhs.Data[i]);
-  }
+ std::copy(rhs.Data, rhs.Data + length, Data);
  }
  return *this;
 }
@@ -86,7 +81,7 @@ bool String::operator<(const String& rhs) const{
 size_t String::Find(const String& substr) const{
  size_t word_length = substr.Size();
  for (size_t i = 0; i < Size() - word_length + 1; ++i) {
-  if (std::equal(Data[i], Data[i] + word_length, substr.Data)) {
+  if (std::equal(Data + i, Data + i + word_length, substr.Data)) {
    return i;
   }
  }
@@ -211,5 +206,5 @@ String operator*(const String& a, unsigned int b){
 }
 
 std::ostream& operator<<(std::ostream& out, const String& str){
- return out str.Data;
+ return out << str.Data;
 }
